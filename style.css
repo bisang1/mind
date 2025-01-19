@@ -1,10 +1,20 @@
-/* 기본 컬러 팔레트 */
+/* 컬러 팔레트 정의 */
 :root {
-    --background-color: #FAFAFA;
-    --text-dark: #333333;
-    --text-medium: #666666;
-    --text-light: #FFFFFF;
-    --shadow: rgba(0, 0, 0, 0.05);
+    /* 메인 컬러 */
+    --main-mint: #B8E2D5;     /* 차분한 민트 */
+    --main-lavender: #E2D5E6; /* 부드러운 라벤더 */
+    --main-peach: #FFE5D6;    /* 따뜻한 피치 */
+    --sub-sage: #D5E6D8;      /* 세이지 그린 */
+    --sub-sky: #D5E6E6;       /* 하늘색 */
+    --text-dark: #4A4A4A;     /* 진한 회색 */
+    --text-medium: #767676;   /* 중간 회색 */
+    --text-light: #FFFFFF;    /* 흰색 */
+    
+    /* 추가 파스텔 컬러 */
+    --pastel-rose: #FFE4E1;   /* 미스티 로즈 */
+    --pastel-lavender: #E6E6FA; /* 라벤더 미스트 */
+    --pastel-honeydew: #F0FFF0; /* 허니듀 */
+    --pastel-blush: #FFF0F5;  /* 라벤더 블러쉬 */
 }
 
 /* 기본 스타일 리셋 */
@@ -16,7 +26,6 @@
 
 body {
     font-family: 'Pretendard', sans-serif;
-    background-color: var(--background-color);
     line-height: 1.6;
     color: var(--text-dark);
 }
@@ -28,49 +37,28 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px var(--shadow);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-dark);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-links a {
     color: var(--text-dark);
     text-decoration: none;
-    font-size: 1rem;
+    margin-left: 2rem;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #B8E2D5;
+    color: var(--main-mint);
 }
 
 /* 히어로 섹션 */
 .hero {
-    background: linear-gradient(135deg, #E8F6F1, #F1E8F5);
-    min-height: 100vh;
+    background: linear-gradient(135deg, var(--main-mint), var(--main-lavender));
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
-    margin-top: 60px;
-}
-
-.hero-content {
-    max-width: 800px;
     padding: 2rem;
 }
 
@@ -86,85 +74,94 @@ body {
     margin-bottom: 2rem;
 }
 
-/* 진단 섹션 */
-.diagnosis-section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+/* 특징 카드 섹션 */
+.features {
+    padding: 4rem 5%;
 }
 
-.section-title {
+.features h2 {
     text-align: center;
-    font-size: 2.5rem;
     margin-bottom: 3rem;
+    font-size: 2.5rem;
     color: var(--text-dark);
 }
 
-/* 카드 그리드 */
-.card-grid {
+.feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 1rem;
+    padding: 2rem 0;
 }
 
-/* 진단 카드 스타일 */
-.diagnosis-card {
+/* 각 카드별 스타일 */
+.feature-card {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 6px var(--shadow);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* 카드 색상 클래스 */
-.mint {
-    background-color: #E8F6F1;
+/* 각 카드별 배경색 지정 */
+.feature-card:nth-child(1) {
+    background: var(--main-mint);
 }
 
-.lavender {
-    background-color: #F1E8F5;
+.feature-card:nth-child(2) {
+    background: var(--main-lavender);
 }
 
-.peach {
-    background-color: #FFF0E5;
+.feature-card:nth-child(3) {
+    background: var(--main-peach);
 }
 
-.mint-light {
-    background-color: #E8F6F1;
+.feature-card:nth-child(4) {
+    background: var(--sub-sage);
 }
 
-.blue-light {
-    background-color: #E8F1F6;
+.feature-card:nth-child(5) {
+    background: var(--sub-sky);
 }
 
-.peach-light {
-    background-color: #FFF0E5;
+.feature-card:nth-child(6) {
+    background: var(--pastel-rose);
 }
 
-/* 카드 호버 효과 */
-.diagnosis-card:hover {
+.feature-card:nth-child(7) {
+    background: var(--pastel-lavender);
+}
+
+.feature-card:nth-child(8) {
+    background: var(--pastel-honeydew);
+}
+
+.feature-card:nth-child(9) {
+    background: var(--pastel-blush);
+}
+
+.feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* 카드 내용 스타일 */
-.diagnosis-card h3 {
+.card-icon {
+    font-size: 2rem;
     color: var(--text-dark);
     margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 600;
 }
 
-.diagnosis-card p {
-    color: var(--text-medium);
+.feature-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
 }
 
-/* 진단하기 버튼 */
-.diagnosis-button {
+/* 버튼 스타일 */
+.cta-button, .test-button {
     background: var(--text-light);
     color: var(--text-dark);
     border: none;
@@ -173,31 +170,44 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px var(--shadow);
 }
 
-.diagnosis-button:hover {
-    transform: translateY(-2px);
-    background-color: #F8F8F8;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* CTA 버튼 */
-.cta-button {
-    background: var(--text-light);
-    color: var(--text-dark);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px var(--shadow);
-}
-
-.cta-button:hover {
+.cta-button:hover, .test-button:hover {
+    background: var(--main-peach);
     transform: scale(1.05);
-    background-color: #F8F8F8;
+}
+
+/* 프로세스 섹션 */
+.process {
+    background: var(--sub-sky);
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.step {
+    background: var(--text-light);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--main-mint);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
 }
 
 /* 푸터 */
@@ -205,93 +215,12 @@ footer {
     background: var(--text-dark);
     color: var(--text-light);
     padding: 2rem 5%;
-    margin-top: 4rem;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.footer-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #B8E2D5;
-}
-
-/* 애니메이션 */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.diagnosis-card {
-    animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-/* 접근성 */
-@media (prefers-reduced-motion: reduce) {
-    .diagnosis-card {
-        animation: none;
-    }
-
-    .diagnosis-card:hover {
-        transform: none;
-    }
-
-    .diagnosis-button:hover {
-        transform: none;
-    }
-}
-.feature-card {
-    animation: fadeIn 0.6s ease-out;
-}
+.footer-links
